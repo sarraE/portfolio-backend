@@ -6,7 +6,7 @@ import tn.portfolio.portofolio.Services.IVisitorStatService;
 
 @RestController
 @AllArgsConstructor
-@CrossOrigin(origins = "https://portfolio-frontend-pznn.vercel.app")
+
 public class VisitorStatController {
     private IVisitorStatService iVisitorStatService;
 
