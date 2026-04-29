@@ -3,6 +3,7 @@ package tn.portfolio.portofolio.Services;
 import lombok.AllArgsConstructor;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import tn.portfolio.portofolio.Entities.Message;
 import tn.portfolio.portofolio.Repositories.MessageRepository;
@@ -16,15 +17,21 @@ import java.util.List;
 public class MessageService implements IMessageService{
     private MessageRepository messageRepository;
     private JavaMailSender mailer;
+<<<<<<< HEAD
+    private EmailService emailService;
+
+=======
     @Async
+>>>>>>> f4a8c969f815e3d4eda25a084275cea2080c9d8a
     @Override
 
-        public Message sendMessage(Message message) {
-            message.setDispatchDate(LocalDateTime.now());
-            Message saved = messageRepository.save(message);
-            sendEmail(saved);
-            return saved;
-        }
+
+    public Message sendMessage(Message message) {
+        message.setDispatchDate(LocalDateTime.now());
+        Message saved = messageRepository.save(message);
+        emailService.sendEmail(saved);
+        return saved;
+    }
 
 
     @Override
@@ -46,25 +53,7 @@ public class MessageService implements IMessageService{
         messageRepository.save(msg);
     }
 
-    @Override
-    public void sendEmail(Message message) {
-
-        SimpleMailMessage email = new SimpleMailMessage();
 
 
-        email.setTo("sarraelkamel99@gmail.com");
 
-
-        email.setReplyTo(message.getEmail());
-
-        email.setSubject("Nouveau message : " + message.getSubject());
-
-        email.setText(
-                "Nom : " + message.getName() + "\n" +
-                        "Email : " + message.getEmail() + "\n\n" +
-                        message.getContent()
-        );
-
-        mailer.send(email);
-    }
 }

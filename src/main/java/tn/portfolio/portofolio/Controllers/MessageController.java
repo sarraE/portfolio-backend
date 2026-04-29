@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import tn.portfolio.portofolio.Entities.Message;
+import tn.portfolio.portofolio.Services.EmailService;
 import tn.portfolio.portofolio.Services.IMessageService;
 
 import java.io.IOException;
@@ -13,14 +14,20 @@ import static org.springframework.http.MediaType.MULTIPART_FORM_DATA_VALUE;
 
 @RestController
 @AllArgsConstructor
+<<<<<<< HEAD
+//@CrossOrigin(origins = "http://localhost:4200")
+=======
+>>>>>>> f4a8c969f815e3d4eda25a084275cea2080c9d8a
 
 public class MessageController {
     private IMessageService iMessageService;
+    private EmailService emailService;
 
     @PostMapping(path = "/sendMessage")
     Message sendMessage(@RequestBody Message message) {
         return iMessageService.sendMessage(message);
     }
+
 
     @GetMapping("/getAllMessages")
     public List<Message> getAllMessages(){
@@ -36,6 +43,6 @@ public class MessageController {
     }
     @PostMapping("/sendEmail")
     public void sendEmail(@RequestBody Message message){
-        iMessageService.sendEmail(message);
+        emailService.sendEmail(message);
     }
 }

@@ -8,6 +8,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableAsync
 public class PortofolioApplication {
 
+
     public static void main(String[] args) {
         SpringApplication.run(PortofolioApplication.class, args);
     }

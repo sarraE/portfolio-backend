@@ -15,6 +15,10 @@ import static org.springframework.http.MediaType.MULTIPART_FORM_DATA_VALUE;
 
 @RestController
 @AllArgsConstructor
+<<<<<<< HEAD
+//@CrossOrigin(origins = "http://localhost:4200")
+=======
+>>>>>>> f4a8c969f815e3d4eda25a084275cea2080c9d8a
 
 public class ProjectController {
     public IProjectService iProjectService;
