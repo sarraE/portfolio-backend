@@ -6,10 +6,6 @@ import tn.portfolio.portofolio.Services.IVisitorStatService;
 
 @RestController
 @AllArgsConstructor
-<<<<<<< HEAD
-//@CrossOrigin(origins = "http://localhost:4200")
-=======
->>>>>>> f4a8c969f815e3d4eda25a084275cea2080c9d8a
 
 public class VisitorStatController {
     private IVisitorStatService iVisitorStatService;
