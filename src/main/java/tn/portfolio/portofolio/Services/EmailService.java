@@ -12,23 +12,21 @@ import tn.portfolio.portofolio.Entities.Message;
 public class EmailService {
     private JavaMailSender mailer;
 
-    @Async
-  public void sendEmail(Message message) {
+   @Async
+public void sendEmail(Message message) {
     System.out.println("🔥 EmailService.sendEmail() exécuté !");
     try {
         SimpleMailMessage email = new SimpleMailMessage();
         email.setTo("sarraelkamel99@gmail.com");
         email.setReplyTo(message.getEmail());
         email.setSubject("Nouveau message : " + message.getSubject());
-        email.setText(
-            "Nom : " + message.getName() + "\n" +
-            "Email : " + message.getEmail() + "\n\n" +
-            message.getContent()
-        );
+        email.setText("Nom : " + message.getName() + "\n" +
+                      "Email : " + message.getEmail() + "\n\n" +
+                      message.getContent());
         mailer.send(email);
-        System.out.println("✅ Email envoyé !");
+        System.out.println("✅ Email envoyé !"); // ← après mailer.send
     } catch (Exception e) {
-        System.err.println("❌ Erreur: " + e.getClass().getName() + " - " + e.getMessage());
+        System.err.println("❌ Erreur: " + e.getMessage());
         e.printStackTrace();
     }
 }
