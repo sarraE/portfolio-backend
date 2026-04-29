@@ -6,6 +6,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import tn.portfolio.portofolio.Entities.Message;
 import tn.portfolio.portofolio.Repositories.MessageRepository;
+import org.springframework.scheduling.annotation.Async;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.List;
 public class MessageService implements IMessageService{
     private MessageRepository messageRepository;
     private JavaMailSender mailer;
+    @Async
     @Override
 
         public Message sendMessage(Message message) {
