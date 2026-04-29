@@ -32,6 +32,7 @@ public class Project implements Serializable {
     LocalDate creationDate;
 
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("project") // ← idem
     List<Message> messages;
 
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
