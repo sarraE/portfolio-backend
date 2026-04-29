@@ -26,5 +26,6 @@ public class Message implements Serializable {
 
     @ManyToOne(optional = true)
     @JoinColumn(name = "project_id_project", nullable = true)
+    @JsonIgnoreProperties({"messages", "stats"})
     Project project;
 }
