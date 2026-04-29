@@ -22,9 +22,11 @@ public class MessageService implements IMessageService{
     public Message sendMessage(Message message) {
     message.setDispatchDate(LocalDateTime.now());
     message.setRead(false);
-    message.setProject(null); 
+    message.setProject(null);
     Message saved = messageRepository.save(message);
+    System.out.println("📨 Appel sendEmail pour: " + saved.getEmail());
     emailService.sendEmail(saved);
+    System.out.println("📨 sendEmail appelé !");
     return saved;
 }
 
