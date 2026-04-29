@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import tn.portfolio.portofolio.Entities.Message;
 import tn.portfolio.portofolio.Services.IMessageService;
+import tn.portfolio.portofolio.Services.EmailService;
 
 import java.io.IOException;
 import java.util.List;
