@@ -16,6 +16,7 @@ import static org.springframework.http.MediaType.MULTIPART_FORM_DATA_VALUE;
 
 public class MessageController {
     private IMessageService iMessageService;
+    private EmailService emailService;
 
     @PostMapping(path = "/sendMessage")
     Message sendMessage(@RequestBody Message message) {
@@ -36,6 +37,6 @@ public class MessageController {
     }
     @PostMapping("/sendEmail")
     public void sendEmail(@RequestBody Message message){
-        iMessageService.sendEmail(message);
+        emailService.sendEmail(message);
     }
 }
