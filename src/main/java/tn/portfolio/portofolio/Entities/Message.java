@@ -24,6 +24,7 @@ public class Message implements Serializable {
     LocalDateTime dispatchDate;
     boolean read;
 
-    @ManyToOne
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "project_id_project", nullable = true)
     Project project;
 }
