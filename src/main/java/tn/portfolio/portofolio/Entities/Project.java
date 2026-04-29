@@ -3,7 +3,7 @@ package tn.portfolio.portofolio.Entities;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
@@ -32,7 +32,7 @@ public class Project implements Serializable {
     LocalDate creationDate;
 
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("project") // ← idem
+    @JsonIgnoreProperties("project") 
     List<Message> messages;
 
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
