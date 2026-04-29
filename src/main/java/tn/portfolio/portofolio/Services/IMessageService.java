@@ -9,6 +9,6 @@ public interface IMessageService {
     List<Message> getAllMessages();
     Long countNotRead();
     void markedRead(Long id);
-    void sendEmail(Message message);
+    
 
 }
