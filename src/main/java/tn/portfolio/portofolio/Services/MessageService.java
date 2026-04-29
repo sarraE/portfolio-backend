@@ -18,14 +18,15 @@ public class MessageService implements IMessageService{
     private JavaMailSender mailer;
      private EmailService emailService;
     @Async
-    @Override
-
-         public Message sendMessage(Message message) {
-        message.setDispatchDate(LocalDateTime.now());
-        Message saved = messageRepository.save(message);
-        emailService.sendEmail(saved);
-        return saved;
-    }
+   @Override
+    public Message sendMessage(Message message) {
+    message.setDispatchDate(LocalDateTime.now());
+    message.setRead(false);
+    message.setProject(null); 
+    Message saved = messageRepository.save(message);
+    emailService.sendEmail(saved);
+    return saved;
+}
 
 
     @Override
