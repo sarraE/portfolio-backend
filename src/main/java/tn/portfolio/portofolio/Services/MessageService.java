@@ -17,7 +17,7 @@ public class MessageService implements IMessageService{
     private MessageRepository messageRepository;
     private JavaMailSender mailer;
      private EmailService emailService;
-    @Async
+    
    @Override
     public Message sendMessage(Message message) {
     message.setDispatchDate(LocalDateTime.now());
