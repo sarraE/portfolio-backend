@@ -13,7 +13,8 @@ public class EmailService {
     private JavaMailSender mailer;
 
     @Async
-   public void sendEmail(Message message) {
+  public void sendEmail(Message message) {
+    System.out.println("🔥 EmailService.sendEmail() exécuté !");
     try {
         SimpleMailMessage email = new SimpleMailMessage();
         email.setTo("sarraelkamel99@gmail.com");
@@ -25,9 +26,9 @@ public class EmailService {
             message.getContent()
         );
         mailer.send(email);
-        System.out.println("✅ Email envoyé avec succès !");
+        System.out.println("✅ Email envoyé !");
     } catch (Exception e) {
-        System.err.println("❌ Erreur envoi email: " + e.getMessage());
+        System.err.println("❌ Erreur: " + e.getClass().getName() + " - " + e.getMessage());
         e.printStackTrace();
     }
 }
